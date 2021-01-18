@@ -35,16 +35,17 @@ enemyX = 450
 enemyY = random.randint(300, 340)
 enemyX_speed = -10
 
+liv = []  #liste over livet til spilleren
 #bakgrunnen samlet under en "funskjon"
 def redrawgamewindow():
     skjerm.blit(surface, (0,0))
-    skjerm.blit(player, (x, y))
+    skjerm.blit(player, (x, y)) 
     skjerm.blit(enemyimg, (enemyX, enemyY))
-    enemyhitbox = (enemyX, enemyY, width, height)
+    enemyhitbox = (enemyX, enemyY, width, height) #lager hitbox for enemyen
     enemy_rec = pygame.draw.rect(skjerm, (HVIT), enemyhitbox,2)
-    playerhitbox = (x, y, width, height)
-    player_rec = pygame.draw.rect(skjerm, (RØD), playerhitbox,2)
-    if player_rec.colliderect(enemy_rec):
+    playerhitbox = (x, y, width, height) #lager hitbox for spilleren
+    player_rec = pygame.draw.rect(skjerm, (RØD), playerhitbox,2) 
+    if player_rec.colliderect(enemy_rec): # tegner en rektangel rundt begge figurene og tester om de kolliderer så legger jeg til i listen liv og tester om den stiger i main loopen
         if abs(enemy_rec.top - player_rec.bottom) < 10:
             liv.append(1)
         if abs(enemy_rec.bottom - player_rec.top) < 10:
@@ -53,8 +54,7 @@ def redrawgamewindow():
             liv.append(1)
         if abs(enemy_rec.left - player_rec.right) < 10:
             liv.append(1)
-    
-liv = []  #liste over livet til spilleren
+
 nivå = 0
 
 #loopen for spillet, eller såkalt "main loop"
