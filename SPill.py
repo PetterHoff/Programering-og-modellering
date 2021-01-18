@@ -88,7 +88,7 @@ while run:
     
     if enemyX <=-50: #hvis enemyen treffer rammen ved x = 0 så vil enemyen spawne tilbake til start, som i pac man, og gå litt raskere hver gang.
         enemyX = 500 
-        enemyX_speed *= (1.05)                  #øker farten random med 1.2, dette gjør det vanskeligere for hver runde og må time hoppet mere for å overleve
+        enemyX_speed *= (1.08)                  #øker farten med 1.08, dette gjør det vanskeligere for hver runde og må time hoppet mere for å overleve
         nivå += 1
         
 
